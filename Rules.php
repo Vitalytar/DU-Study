@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Правила</title>
+	<title>ADVMAST - Правила</title>
 	<script src="jquery-3.3.1.min.js"></script>
 </head>
 <body>

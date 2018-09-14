@@ -4,7 +4,7 @@
 
 <form action="/index.php" method="POST">
   <meta charset="UTF-8">
-  <title>Sludinājumu serviss</title>
+  <title>ADVMAST - Sludinājumu serviss</title>
   <link rel="stylesheet" href="css/style.css">
   <script src='js/jquery-3.3.1.js'></script>
   <style type="text/css">
@@ -20,8 +20,13 @@
       width: 20%;
       letter-spacing: 1px;
     }
-  </style>  
-    <div class="navWrapper">
+  </style>
+  <section>
+    <?php
+      if(empty($_COOKIE['login'])) { /* если куки не существуют */ } else {/* если куки существуют */}
+?>
+
+  <div class="navWrapper">
         <div class="nav" id="main-nav">
             <div id="subNavigation">
                 <button class="sub-btn"><a href="Registration.php">РЕГИСТРАЦИЯ</a></button>
@@ -30,11 +35,13 @@
                 <button class="sub-btn"><a href="Rules.php">ПРАВИЛА</a></button>
                 <button class="sub-btn"><a href="addAdv.php">ПОДАТЬ ОБЪЯВЛЕНИЕ</a></button>
                 <button class="sub-btn"><a href="About.php">РАЗРАБОТЧИК</a></button>
+                <button class="sub-btn"><a href="includes/logout.php">Выйти</a></button>
             </div>
             <button id="mainButton">МЕНЮ</button>
         </div>
     </div>
-    <script src="js/index.js"></script>
+    <script src="js/index.js"></script>  
+    
     <table width="80%" style="margin-top: 7%; margin-left: 10%;">
         <tr>
             <th><a style="text-transform: uppercase; text-decoration: underline;">Компьютеры</a></th>

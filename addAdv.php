@@ -2,7 +2,7 @@
 
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Подать объявление</title>
+	<title>ADVMAST - Подать объявление</title>
 	<script src="jquery-3.3.1.min.js"></script>
 <div class="wrapper">
    <div class="nav" id="main-nav">
