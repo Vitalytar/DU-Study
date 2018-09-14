@@ -1,34 +1,29 @@
 <?php 
   require 'includes/contodatabase.php'; // скрипт подключения к БД 
-?>
 
-<?php
-    $errors = array();
+        $errors = array();
+        if(!isset($_COOKIE['id'])){
+          if(isset($_POST['do_login'])) {
+            $usrlogin = htmlentities(mysqli_real_escape_string($connect, $_POST['login']));
+            $usrpassword = htmlentities(mysqli_real_escape_string($connect, md5($_POST['password'])));
 
-    if($_POST['login'] != '' && $_POST['password'] != '') {
-      $login = $_POST['login'];
-      $password = $_POST['password'];
-
-      $query = mysqli_query("SELECT * FROM users WHERE login = $login"); // запрос на строку из БД с логином, который ввел пользователь
-      if(mysqli_num_rows($query) == 1) {
-        $row = mysqli_fetch_assoc($query);
-        if(md5($password) == $row['password']) {
-          setcookie('login', $row['login'], time() + 50000);
-          setcookie('password', md5($row['login'].$row['password']), time() + 50000);
-          $_SESSION['id'] = $row['id'];
-          $id = $_SESSION['id'];
-          lastAct($id);
-          return $error;
-        }
-        else {
-          $error[] = "Неверный пароль";
-          return $error;
-        } // если не совпали пароли
+          if(!empty($usrlogin) && !empty($usrpassword)) {
+            $query = "SELECT `id`, `login`, `password` FROM `users` WHERE login = '$usrlogin' AND password = '$usrpassword'";
+            $data = mysqli_query($connect, $query);
+            if(mysqli_num_rows($data) == 1) {
+              $row = mysqli_fetch_assoc($data);
+              setcookie('id', $row['id'], time() + (60*60*24*30));
+              setcookie('login', $row['login'], time() + (60*60*24*30));
+              $home_url = 'http://'.$_SERVER['HTTP_HOST'];
+              header('Location: '.$home_url);
+            } else {
+              echo '<div style="color: red;">Логин/пароль введен неверно!</div>';
+            }
       }
-      else {
-        $error[] = "Неверный логин и/или пароль!";
-      } // если логина не найдено в БД
-    }
+    } 
+        }
+
+
 ?>
 
 <form action="/Login.php" method="POST">
@@ -38,7 +33,8 @@
 	<link rel="stylesheet" href="css/style.css">
 	<title>Войти</title>
 	<script src="jquery-3.3.1.min.js"></script>
-<div class="wrapper">
+  <header>
+    <div class="wrapper">
    <div class="nav" id="main-nav">
        <div id="subNavigation">
          <button class="sub-btn"><a href="Registration.php">РЕГИСТРАЦИЯ</a></button>
@@ -52,6 +48,8 @@
   </div>
 </div>
   <script src="js/index.js"></script>
+  </header>
+
 
 <div style="margin-top: 10%; margin-left: 43%">
   <p>
