@@ -1,108 +1,11 @@
-body, html {
-  background: #2e3941;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+ul {
+  white-space: nowrap;
+}
+li {
+  display: inline-block;
 }
 
-.nav {
-  width: 100px;
-  height: 38px;
-  position: absolute;
-  top: 0;
-  z-index: 2;
-  bottom: 0;
-  left: 50%;
-  border: 1px solid #fff;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease;
-  transform: translate(-50%, -50%);
-  top: 5%;
-}
-.nav button#mainButton {
-  background: transparent;
-  border: 0;
-  padding: 10px;
-  width: 100px;
-  height: 50px;
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  color: red;
-  font-family: paytone one;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  font-size: 12px;
-  transform-origin: middle;
-}
-
-.nav button#mainButton:hover {
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
-}
-
-.nav button#mainButton:focus {
-  outline: none;
-}
-.nav #subNavigation button {
-  background: transparent;
-  width: 100px;
-  height: 50px;
-  border: 0;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  transition: all 1s ease,  scale 0.5s ease, transform 0.5s ease;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  font-size: 11px;
-
-}
-.nav #subNavigation button:hover {
-  -moz-transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  transform: scale(1.5);
-}
-.nav #subNavigation button:focus {
-  outline: none;
-}
-
-a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.content {
-  width: 20%;
-  background: #fff;
-  height: 20%;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-#profileContainer {
-  background-color: blue;
-  font-size: 18px;
-  border: 1px solid bold;
-  margin: 3% 5%;
-  border-color: white;
-  height: 50px;
-  width: 50px;
+.tooltip {
+	width: 15px;
+	height: 15px;
 }
