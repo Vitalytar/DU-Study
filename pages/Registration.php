@@ -4,8 +4,8 @@
 ?>
 <form method="POST" action="../controllers/register.php">
 	<script type="text/javascript">
-	$(function () {
-  	$('[data-toggle="tooltip"]').tooltip()
+	$(function() {
+		$('[data-toggle="tooltip"]').tooltip()	
 	})
 	</script>
   <title>ADVMAST - Регистрация</title>
@@ -21,11 +21,11 @@
 		<legend><strong>Регистрация</strong></legend>
 	<div class="col-md-offset-5 col-md-8">
 	<p>
-		<p><label for="login"><strong>Ваш логин<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="right" title="Пример: ADVMAST"></p> 
+		<p><label for="login"><strong>Ваш логин<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="bottom" title="Пример: ADVMAST"></p> 
 		<input type="text" name="login" value="<?php echo @$data['login']; ?>" placeholder="Логин" class="form-control input-sm chat-input"> 
 	</p>
 	<p>
-		<p><label for="email"><strong>Ваш адрес электронной почты<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="right" title="Пример: ADVMAST@advmast.lv"></p><input type="email" name="email" value="<?php echo @$data['email']; ?>" placeholder="Е-майл" class="form-control input-sm chat-input">
+		<p><label for="email"><strong>Ваш адрес электронной почты<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="left" title="Пример: ADVMAST@advmast.lv"></p><input type="email" name="email" value="<?php echo @$data['email']; ?>" placeholder="Е-майл" class="form-control input-sm chat-input">
 	</p>
 	<p>
 		<p><label for="password"><strong>Ваш пароль<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="right" title="Пример: G@#gaD142$adEAS"></p> <input type="password" name="password" placeholder="Пароль" class="form-control input-sm chat-input">
@@ -42,7 +42,7 @@
 		</select>
 	</p>
 	<p> 
-		<p><label for="telephone"><strong>Введите Ваш номер телефона<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="right" title="Пример: Номер должен содержать 8 цифр"></p> <input type="tel" name="telephone" placeholder="Номер телефона" class="form-control input-sm chat-input"> 
+		<p><label for="telephone"><strong>Введите Ваш номер телефона<font color="red">*</font></strong></label>  <img src="../../images/qMark.png" style="width: 15px; height: 15px;" data-toggle="tooltip" data-placement="right" title="Номер должен содержать 8 цифр"></p> <input type="tel" name="telephone" placeholder="Номер телефона" class="form-control input-sm chat-input"> 
 	</p>
 		<p><button type="submit" name="do_signup" class="btn btn-dark">Зарегестрироваться</button> </p>
 	</div>

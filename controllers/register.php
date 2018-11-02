@@ -2,11 +2,11 @@
   require '../includes/contodatabase.php';
 
 	$registration_date = date('Y-m-d');
-	$home_url = 'http://'.$_SERVER['HTTP_HOST'];
-	$errors = array(); 
+	$home_url = 'http://advmast.lv/pages/login.php'; // Домашний URL $_SERVER['HTTP_HOST']
+	$errors = array(); // массив для ошибок
 	if(isset($_POST['do_signup']))
 	{
-		if(trim($_POST['login']) == '')  { // trim убирает лишние пробелы
+		if(trim($_POST['login']) == '')  { // trim чтобы убрать лишние пробелы
 			$errors[] = 'Ошибка при вводе логина!';
 		}
 
@@ -47,6 +47,7 @@
 		{
 			$errors[] = 'Введенные пароли не совпадают!';
 		}
+		// Проверка на существование логина или email в базе, чтобы не было одинаковых пользователей
 		$login = $_POST['login'];
 		$email = $_POST['email'];
 		$query = "SELECT * FROM users WHERE login = '$login' OR email = '$email'";
@@ -59,8 +60,7 @@
 			unset($email);
 			unset($query);
 			unset($result);
-		}
-		
+		} // обнуление всех переменных при проверке
 	} // проверки на правльность заполнения полей, что бы не были пустые    	
     	if(empty($errors)) {
     // экранирования символов для mysql
@@ -75,6 +75,6 @@
     		mysqli_close($connect);
         	header('Location: ../pages/login.php');    	 	
    } else {
-   	header('Refresh: 3; url="http://studdarbs/pages/registration.php"'); // Задержка 3 секунды перед тем, как пользователь будет возвращен на страницу регистрации
+   	header('Refresh: 3; url="http://advmast.lv/pages/registration.php"'); // Задержка 3 секунды перед тем, как пользователь будет возвращен на страницу регистрации
    	exit(array_shift($errors).' <strong>Через 3 секунды вы будете возвращены на страницу регистрации!</strong>');
    }

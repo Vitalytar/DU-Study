@@ -10,15 +10,33 @@
   <meta charset="UTF-8">
 </head>
 <body>
-<form enctype="multipart/form-data" action="controllers/advadd.php" method="POST">    
-	<div class="container" style="margin-top: 7%;">
+<form enctype="multipart/form-data" action="addAdv.php" method="POST">
+<?php
+	if(isset($_COOKIE['login']) && isset($_COOKIE['id'])) {
+		echo '<div class="container" style="margin-top: 7%;">
+	<select name="state" class="form-control input-sm" style="width: 20%;">
+		<option class="invisible">Состояние</option>
+		<option>Новое</option>
+		<option>Идеальное</option>
+		<option>Хорошее</option>
+		<option>Удовлетворительное</option>
+		<option>Неудовлетворительное</option>
+	</select><br/>
+		<p><strong>Название<font color="red">*</font></strong><br/>
+		<input class="form-control input-sm" style="width: 20%;" type="text" name="thing" maxlength="50"></p>
 		<strong>Описание<font color="red">*</font></strong><br/>
-		<textarea rows="5" cols="50"></textarea>
-		<p><strong>Фото</strong></p>
-		<input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-		<input type="file" name="photo" accept="image/*"><br/><br/>
-		<button type="submit" name="send_adv">Подать объявление</button>  <button type="submit" name="viewAdv">Предпросмотр</button>
-	</div>
+		<textarea class="form-control input-sm" style="width: 40%;" rows="5" cols="50" name="advtext"></textarea>
+		<p><br/><label for="number"><strong>Цена<font color="red">*</font></strong></label><br/>
+		<input class="form-control input-sm" style="width: 20%;" type="number" name="price" min="1" max="9999999"></p>
+		<button type="submit" name="send_adv" class="btn btn-dark">Подать объявление</button>
+	</div>';
+	} else {
+		echo '<div style="margin-top: 7%;"><h1>Подавать объявления могут только зарегестрированные пользователи!</h1><br/>
+		<a href="Login.php">Авторизация</a><br/>
+		<a href = "Registration.php">Регистрация</a></div>';
+	}
+	
+?>
 </form>
 
 </body>
